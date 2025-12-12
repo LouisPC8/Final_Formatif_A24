@@ -122,7 +122,17 @@ export class AppComponent {
         }
       });
     });
-
+    this.hubConnection.on('BonneReponse',()=> {
+      this.zone.run(() => {
+        this.nbRightAnswers++ 
+        alert("Bonne réponse !!!")
+      });
+    });
+    this.hubConnection.on('MauvaiseReponse',(reponse : number)=> {
+      this.zone.run(() => {
+        alert("Mauvaise réponse ! La bonne réponse était " + reponse)
+      });
+    });
     this.hubConnection
       .start()
       .then(() => {
