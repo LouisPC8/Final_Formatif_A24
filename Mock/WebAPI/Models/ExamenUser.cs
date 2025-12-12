@@ -8,6 +8,6 @@ namespace WebAPI.Models
 {
     public class ExamenUser:IdentityUser
     {
-        public Seat? Seat { get; set; }
+        public virtual Seat? Seat { get; set; }
     }
 }
